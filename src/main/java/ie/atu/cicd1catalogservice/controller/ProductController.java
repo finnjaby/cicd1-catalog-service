@@ -20,6 +20,11 @@ public class ProductController {
         return service.getAll();
     }
 
+    @GetMapping("/{id}")
+    public Product getById(@PathVariable Long id) {
+        return service.getById(id);
+    }
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Product create(@RequestBody Product product) {
