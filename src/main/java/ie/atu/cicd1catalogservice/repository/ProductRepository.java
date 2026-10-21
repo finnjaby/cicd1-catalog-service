@@ -12,11 +12,13 @@ import java.util.List;
 public interface ProductRepository
         extends JpaRepository<Product, Long> {
     @Query(""" 
-SELECT p 
-FROM Product p 
-WHERE p.price >= :minPrice 
-ORDER BY p.price ASC 
+SELECT p
+FROM Product p
+WHERE p.price >= :minPrice
+ORDER BY p.price ASC
 """)
     List<Product> findByMinimumPrice(
             @Param("minPrice") BigDecimal minPrice);
+
+    List<Product> findByCategoryName(String categoryName);
 }
